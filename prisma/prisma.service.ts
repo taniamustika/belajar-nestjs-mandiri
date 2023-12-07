@@ -1,4 +1,4 @@
-import { Injectable, OnModuleInit } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { PrismaClient } from "@prisma/client";
 
@@ -12,5 +12,11 @@ export class PrismaService extends PrismaClient {
                 },
             },
         })
+    }
+    cleanDB() {
+        return this.$transaction([
+            this.post.deleteMany(),
+            this.user.deleteMany(),
+        ])
     }
 }
