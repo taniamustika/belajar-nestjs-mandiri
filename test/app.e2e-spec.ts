@@ -182,7 +182,7 @@ describe('App e2e', () => {
       it('Berhasil mendapatkan semua Post!', () => {
         return pactum
           .spec()
-          .post('/posts')
+          .get('/posts')
           .withHeaders({
             Authorization: `Bearer $S{userAccessToken}`
           })
