@@ -14,11 +14,12 @@ export class PostController {
     return this.postService.getPosts(userId)
   }
 
-  @Get(':id')
-  getPostById(@GetUser('id') userId: number, @Param('id', ParseIntPipe) postId: number){
+  @Get(':ab')
+  getPostById(@GetUser('id') userId: number, @Param('ab', ParseIntPipe) postId: number){
     return this.postService.getPostById(userId, postId)
   }
 
+  //@Body untuk taruh data request body
   @Post()
   createPost(@GetUser('id') userId: number, @Body() dto: CreatePostDto) {
     return this.postService.createPost(userId, dto);
