@@ -38,4 +38,22 @@ model Post {
   user User @relation(fields: [userId], references: [id])
 
   @@map("posts")
+  tags TagsOnPosts[]
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+  name String
+
+  posts TagsOnPosts[]
+}
+
+model TagsOnPosts {
+  postId Int
+  post Post @relation(fields: [postId], references: [id])
+
+  tagId Int
+  tag Tag @relation(fields: [tagId], references: [id])
+
+  @@id([postId,tagId])
 }
