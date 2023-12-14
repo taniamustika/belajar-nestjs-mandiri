@@ -17,7 +17,7 @@ export class AuthController {
 
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'API ini digunakan untuk Signin' })
-    @ApiResponse({ status: 200, description: '{"access_token": "token anda nanti ada di sini}' })
+    @ApiResponse({ status: 200, description: '{"access_token": "token anda nanti ada di sini"}' })
     @Post('signin')
     signin(@Body() dto: AuthDto) {
         return this.authService.signin(dto)

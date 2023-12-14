@@ -58,9 +58,31 @@ export class PostService {
             tag: { connect: { id: x } }
           }))
         }
+      },
+      include: {
+        tags: {
+          select:{
+            tag: {
+              select:{
+                name: true
+              }
+            }
+          }
+        }
       }
     })
-    return post;
+    const filter = post.tags.map((x) => {
+      return x.tag.name
+    })
+    return{
+      id: post.id,
+      title: post.title,
+      description: post.description,
+      createdAt: post.createdAt,
+      updatedAt: post.updatedAt,
+      tags: filter
+
+    };
   }
 
   async editPostById(userId: number, postId: number, dto: EditPostDto) {

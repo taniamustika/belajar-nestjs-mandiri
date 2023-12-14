@@ -11,9 +11,10 @@ async function bootstrap() {
 
   const option = {
     customCss: `
-    .topbar-wrapper img {content:url(\'https://www.pngarts.com/files/2/Letter-Z-PNG-Image-Transparent.png'); width:100px; height:auto;}
-    .swagger-ui .topbar { background-color: #fafafa; }`,
-    customfavIcon: 'https://www.pngarts.com/files/2/Letter-Z-PNG-Image-Transparent.png',
+    .topbar-wrapper a {content: url('https://seeklogo.com/images/N/naver-blog-logo-B1AC84614D-seeklogo.com.png'); max-width: 50px !important; height:auto; margin-bottom: 0 !important; margin-top: 0 !important;}
+    .topbar-wrapper a svg {display: none;}
+    .swagger-ui .topbar { background: #fff !important; }`,
+    customfavIcon: 'https://seeklogo.com/images/N/naver-blog-logo-B1AC84614D-seeklogo.com.png',
     customSiteTitle: 'Post API by Tania'
   }
 

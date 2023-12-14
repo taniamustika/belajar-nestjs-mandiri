@@ -35,7 +35,7 @@ model Post {
   description String?
 
   userId Int
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("posts")
   tags TagsOnPosts[]
@@ -50,10 +50,10 @@ model Tag {
 
 model TagsOnPosts {
   postId Int
-  post Post @relation(fields: [postId], references: [id])
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 
   tagId Int
-  tag Tag @relation(fields: [tagId], references: [id])
+  tag Tag @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   @@id([postId,tagId])
 }
